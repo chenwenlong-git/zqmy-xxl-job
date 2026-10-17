@@ -95,7 +95,7 @@ $(function() {
 					{
 						"data": 'jobId',
 						"visible" : true,
-                        "width":'10%',
+                        "width":'5%',
 						"render": function ( data, type, row ) {
 
 							var jobhandler = '';
@@ -113,15 +113,22 @@ $(function() {
 					},
 					{ "data": 'jobGroup', "visible" : false},
 					{
-						"data": 'triggerTime',
+						"data": 'jobDesc',
                         "width":'20%',
+						"render": function (data) {
+							return $('<div>').text(data || '').html();
+						}
+					},
+					{
+						"data": 'triggerTime',
+                        "width":'16%',
 						"render": function ( data, type, row ) {
 							return data?moment(data).format("YYYY-MM-DD HH:mm:ss"):"";
 						}
 					},
 					{
 						"data": 'triggerCode',
-                        "width":'10%',
+						"width":'8%',
 						"render": function ( data, type, row ) {
 							var html = data;
 							if (data == 200) {
@@ -136,21 +143,21 @@ $(function() {
 					},
 					{
 						"data": 'triggerMsg',
-                        "width":'10%',
+						"width":'9%',
 						"render": function ( data, type, row ) {
 							return data?'<a class="logTips" href="javascript:;" >'+ I18n.system_show +'<span style="display:none;">'+ data +'</span></a>':I18n.system_empty;
 						}
 					},
 	                { 
 	                	"data": 'handleTime',
-                        "width":'20%',
+                        "width":'16%',
 	                	"render": function ( data, type, row ) {
 	                		return data?moment(data).format("YYYY-MM-DD HH:mm:ss"):"";
 	                	}
 	                },
 	                {
 						"data": 'handleCode',
-                        "width":'10%',
+						"width":'8%',
 						"render": function ( data, type, row ) {
                             var html = data;
                             if (data == 200) {
@@ -167,7 +174,7 @@ $(function() {
 	                },
 	                { 
 	                	"data": 'handleMsg',
-                        "width":'10%',
+                        "width":'9%',
 	                	"render": function ( data, type, row ) {
 	                		return data?'<a class="logTips" href="javascript:;" >'+ I18n.system_show +'<span style="display:none;">'+ data +'</span></a>':I18n.system_empty;
 	                	}
@@ -175,7 +182,7 @@ $(function() {
 	                {
 						"data": 'handleMsg' ,
 						"bSortable": false,
-                        "width":'10%',
+                        "width":'9%',
 	                	"render": function ( data, type, row ) {
 	                		// better support expression or string, not function
 	                		return function () {

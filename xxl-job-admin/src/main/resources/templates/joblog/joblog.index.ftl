@@ -88,6 +88,7 @@
 					            	<tr>
                                         <th name="jobId" >${I18n.jobinfo_field_id}</th>
                                         <th name="jobGroup" >jobGroup</th>
+										<th name="jobDesc" >${I18n.jobinfo_field_jobdesc}</th>
 										<#--<th name="executorAddress" >执行器地址</th>
 										<th name="glueType" >运行模式</th>
                                       	<th name="executorParam" >任务参数</th>-->
@@ -175,6 +176,6 @@
 <!-- daterangepicker -->
 <script src="${request.contextPath}/static/adminlte/bower_components/moment/moment.min.js"></script>
 <script src="${request.contextPath}/static/adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="${request.contextPath}/static/js/joblog.index.1.js"></script>
+<script src="${request.contextPath}/static/js/joblog.index.2.js"></script>
 </body>
 </html>

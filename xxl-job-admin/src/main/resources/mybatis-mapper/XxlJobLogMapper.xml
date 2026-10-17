@@ -8,6 +8,7 @@
 
 		<result column="job_group" property="jobGroup" />
 		<result column="job_id" property="jobId" />
+		<result column="job_desc" property="jobDesc" />
 
 		<result column="executor_address" property="executorAddress" />
 		<result column="executor_handler" property="executorHandler" />
@@ -45,8 +46,9 @@
 	</sql>
 	
 	<select id="pageList" resultMap="XxlJobLog">
-		SELECT <include refid="Base_Column_List" />
+		SELECT <include refid="Base_Column_List" />, i.job_desc
 		FROM xxl_job_log AS t
+		LEFT JOIN xxl_job_info AS i ON i.id = t.job_id
 		<trim prefix="WHERE" prefixOverrides="AND | OR" >
 			<if test="jobId==0 and jobGroup gt 0">
 				AND t.job_group = #{jobGroup}
