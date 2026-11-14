@@ -39,6 +39,15 @@
 		WHERE t.update_time <![CDATA[ > ]]> DATE_ADD(#{nowTime},INTERVAL -#{timeout} SECOND)
 	</select>
 
+	<select id="isRegistered" resultType="boolean">
+		SELECT EXISTS (
+			SELECT 1 FROM xxl_job_registry
+			WHERE registry_group = 'EXECUTOR'
+			  AND registry_key = #{appName}
+			  AND update_time <![CDATA[ > ]]> DATE_ADD(#{nowTime}, INTERVAL -#{timeout} SECOND)
+		)
+	</select>
+
     <update id="registryUpdate" >
         UPDATE xxl_job_registry
         SET `update_time` = #{updateTime}
